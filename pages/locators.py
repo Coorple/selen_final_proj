@@ -15,3 +15,4 @@ class ProductPageLocators:
     BOOK_ADDED_NAME = (By.XPATH, '// *[ @ id = "messages"] / div[1] / div / strong')
     PRICE_BOOK = (By.CSS_SELECTOR, '.product_main .price_color')
     CART_PRICE = (By.XPATH, '//*[@id="messages"]/div[3]/div/p[1]/strong')
+    BOOK_NAME = (By.CSS_SELECTOR, '.product_main h1')
