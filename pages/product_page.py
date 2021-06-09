@@ -15,3 +15,15 @@ class ProductPage(BasePage):
         assert self.browser.find_element(*ProductPageLocators.PRICE_BOOK).text == \
                self.browser.find_element(*ProductPageLocators.CART_PRICE).text, \
             "Different prices of book in cart and page "
+
+    def add_to_cart(self):
+        self.browser.find_element(*ProductPageLocators.ADD_BTN).click()
+
+
+    def check_success_msg(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), 'Success message has appeared'
+
+    def succes_msg_dissapeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), 'Success massage has not dissapeared'
+
+

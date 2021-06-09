@@ -16,3 +16,4 @@ class ProductPageLocators:
     PRICE_BOOK = (By.CSS_SELECTOR, '.product_main .price_color')
     CART_PRICE = (By.XPATH, '//*[@id="messages"]/div[3]/div/p[1]/strong')
     BOOK_NAME = (By.CSS_SELECTOR, '.product_main h1')
+    SUCCESS_MESSAGE = (By.XPATH, '//*[@id="messages"]/div[1]')
