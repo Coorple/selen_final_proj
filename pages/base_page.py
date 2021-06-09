@@ -4,12 +4,14 @@ from selenium.common.exceptions import NoSuchElementException, NoAlertPresentExc
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from selen_final_proj.pages.locators import MainPageLocators, BasePageLocators
+
 
 class BasePage:
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
-        #self.browser.implicitly_wait(timeout)
+        self.browser.implicitly_wait(timeout)
 
     def open(self):
         self.browser.get(self.url)
@@ -51,3 +53,15 @@ class BasePage:
             return True
 
         return False
+
+    def go_to_login_page(self):
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_link.click()
+        assert self.browser.current_url.find('login')
+        #asserting with hardcoded url would be bad - at least, url would change with language settings changes
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def click_on_cart(self):
+        self.browser.find_element(*BasePageLocators.CART_BTN).click()
